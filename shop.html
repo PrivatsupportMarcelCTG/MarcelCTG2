@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — MarcelCTG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-gamepad"></i> Marcel<span>CTG</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="about.html">Über mich</a></li>
+                <li><a href="media.html">Videos & Streams</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="contact.html">Community</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="cart-btn" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span></button>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+    <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">Creator <span style="color:var(--accent);">Shop</span></h1>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
+                <h3>Cyber-Neon Hoodie</h3>
+                <p style="color: var(--text-muted); margin: 1rem 0;">49,99 €</p>
+                <button onclick="addToCart('Cyber-Neon Hoodie', 49.99)" class="btn-primary" style="width: 100%; justify-content: center;">In den Warenkorb</button>
+            </div>
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;">
+                <h3>VIP Discord Rang</h3>
+                <p style="color: var(--text-muted); margin: 1rem 0;">9,99 €</p>
+                <button onclick="addToCart('VIP Discord Rang', 9.99)" class="btn-primary" style="width: 100%; justify-content: center;">In den Warenkorb</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
