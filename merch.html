@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarcelCTG - Merch & Kauf</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="logo.jpg" alt="MarcelCTG Logo"></a>
+            <a href="index.html" style="text-decoration: none;"><span class="logo-text">Marcel<span>CTG</span></span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> Über mich</a></li>
+                <li><a href="streams.html"><i class="fas fa-video"></i> Streams</a></li>
+                <li><a href="offers.html"><i class="fas fa-tags"></i> Angebote</a></li>
+                <li><a href="merch.html" class="active"><i class="fas fa-tshirt"></i> Merch & Kauf</a></li>
+            </ul>
+        </nav>
+        <div class="header-socials">
+            <a href="https://m.twitch.tv/marcelctg" target="_blank"><i class="fab fa-twitch"></i></a>
+            <a href="https://youtube.com/@marcelctg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/marcelctg" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@marcelctg_officel_de" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://discord.gg/FCPZFVmgxz" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2>Offizieller Merch & Kauf</h2>
+        <p class="subtitle">Trage den Vibe! Bestelle Hoodies, T-Shirts und Accessoires. Jede Bestellung wird direkt als Discord Webhook (Embed) an Marcel gesendet!</p>
+
+        <!-- Webhook Configuration Box -->
+        <div class="webhook-box" style="background: #1a1e29; border: 1px solid #2a2e3d; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+            <label for="webhookUrl" style="display: block; font-weight: 600; margin-bottom: 8px;"><i class="fab fa-discord"></i> Discord Webhook URL (für den Kauf):</label>
+            <input type="url" id="webhookUrl" placeholder="https://discord.com/api/webhooks/..." style="width: 100%; padding: 10px; background: #12141c; border: 1px solid #334155; border-radius: 6px; color: #fff;">
+            <small style="color: #94a3b8; display: block; margin-top: 5px;">Trage hier deine Discord Webhook URL ein, damit Bestellungen als wunderschönes Embed ankommen.</small>
+        </div>
+
+        <div class="merch-grid">
+            <div class="merch-card">
+                <div class="merch-img"><i class="fas fa-tshirt fa-3x"></i></div>
+                <h3>MarcelCTG Autumn Hoodie</h3>
+                <p class="price">49,99 €</p>
+                <button class="btn primary" onclick="openCheckout('MarcelCTG Autumn Hoodie', '49,99 €')"><i class="fas fa-shopping-cart"></i> Jetzt kaufen</button>
+            </div>
+            <div class="merch-card">
+                <div class="merch-img"><i class="fas fa-tshirt fa-3x"></i></div>
+                <h3>Classic Logo T-Shirt</h3>
+                <p class="price">24,99 €</p>
+                <button class="btn primary" onclick="openCheckout('Classic Logo T-Shirt', '24,99 €')"><i class="fas fa-shopping-cart"></i> Jetzt kaufen</button>
+            </div>
+            <div class="merch-card">
+                <div class="merch-img"><i class="fas fa-mug-hot fa-3x"></i></div>
+                <h3>Streamer Tasse</h3>
+                <p class="price">14,99 €</p>
+                <button class="btn primary" onclick="openCheckout('Streamer Tasse', '14,99 €')"><i class="fas fa-shopping-cart"></i> Jetzt kaufen</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
+        <div style="background:#1a1e29; border:1px solid #2a2e3d; padding:30px; border-radius:12px; width:90%; max-width:500px; position:relative;">
+            <h3 id="modalTitle" style="margin-bottom:15px; color:#f97316;">Kaufabwicklung</h3>
+            <form id="checkoutForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label>Produkt</label>
+                    <input type="text" id="orderProduct" readonly style="background:#12141c; color:#94a3b8;">
+                </div>
+                <div class="form-group">
+                    <label>Preis</label>
+                    <input type="text" id="orderPrice" readonly style="background:#12141c; color:#94a3b8;">
+                </div>
+                <div class="form-group">
+                    <label for="buyerName">Dein Name / Discord Tag</label>
+                    <input type="text" id="buyerName" required placeholder="z.B. Max / Max#1234">
+                </div>
+                <div class="form-group">
+                    <label for="buyerAddress">Lieferadresse / Notiz</label>
+                    <textarea id="buyerAddress" rows="3" required placeholder="Straße, Hausnummer, PLZ, Ort..."></textarea>
+                </div>
+                <div style="display:flex; gap:10px; margin-top:20px;">
+                    <button type="submit" class="btn primary" style="flex:1;">Bestellung absenden</button>
+                    <button type="button" class="btn secondary" onclick="closeCheckout()">Abbrechen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a> | 
+            <a href="about.html">Über mich</a> | 
+            <a href="streams.html">Streams</a> | 
+            <a href="offers.html">Angebote</a> | 
+            <a href="merch.html">Merch & Kauf</a>
+        </div>
+        <p>&copy; 2026 MarcelCTG. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function openCheckout(product, price) {
+            document.getElementById('orderProduct').value = product;
+            document.getElementById('orderPrice').value = price;
+            document.getElementById('checkoutModal').style.display = 'flex';
+        }
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+        async function submitOrder(e) {
+            e.preventDefault();
+            const webhookUrl = document.getElementById('webhookUrl').value.trim();
+            if(!webhookUrl) {
+                alert('Bitte trage oben eine gültige Discord Webhook URL ein!');
+                return;
+            }
+            const product = document.getElementById('orderProduct').value;
+            const price = document.getElementById('orderPrice').value;
+            const name = document.getElementById('buyerName').value;
+            const address = document.getElementById('buyerAddress').value;
+
+            const embed = {
+                title: "🛍️ Neue Bestellung im Merch Shop!",
+                color: 16345638, // Orange
+                fields: [
+                    { name: "📦 Produkt", value: product, inline: true },
+                    { name: "💶 Preis", value: price, inline: true },
+                    { name: "👤 Käufer / Discord", value: name, inline: false },
+                    { name: "🏠 Lieferadresse", value: address, inline: false }
+                ],
+                timestamp: new Date().toISOString(),
+                footer: { text: "MarcelCTG Webshop System" }
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ embeds: [embed] })
+                });
+                if(response.ok || response.type === 'opaque') {
+                    alert('Bestellung erfolgreich an Discord gesendet!');
+                    closeCheckout();
+                    document.getElementById('checkoutForm').reset();
+                } else {
+                    alert('Fehler beim Senden an Discord. Bitte Webhook prüfen.');
+                }
+            } catch(err) {
+                console.error(err);
+                alert('Fehler beim Senden (CORS oder ungültige URL).');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarcelCTG - Live Stream Promo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 35px rgba(249, 115, 22, 0.8); transform: scale(1.02); }
+            100% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); transform: scale(1); }
+        }
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, #1a1e29 0%, #252b3b 100%);
+            border: 2px solid #f97316;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            animation: pulseGlow 3s infinite ease-in-out;
+            margin-bottom: 40px;
+        }
+        .promo-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #f97316;
+            object-fit: cover;
+            margin-bottom: 20px;
+            animation: floatAnim 4s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="logo.jpg" alt="MarcelCTG Logo"></a>
+            <a href="index.html" style="text-decoration: none;"><span class="logo-text">Marcel<span>CTG</span></span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> Über mich</a></li>
+                <li><a href="streams.html"><i class="fas fa-video"></i> Streams</a></li>
+                <li><a href="offers.html"><i class="fas fa-tags"></i> Angebote</a></li>
+                <li><a href="partners.html"><i class="fas fa-handshake"></i> Partner</a></li>
+                <li><a href="merch.html"><i class="fas fa-tshirt"></i> Merch</a></li>
+                <li><a href="ads.html" class="active"><i class="fas fa-bullhorn"></i> Promo</a></li>
+            </ul>
+        </nav>
+        <div class="header-socials">
+            <a href="https://m.twitch.tv/marcelctg" target="_blank"><i class="fab fa-twitch"></i></a>
+            <a href="https://youtube.com/@marcelctg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/marcelctg" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@marcelctg_officel_de" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://discord.gg/FCPZFVmgxz" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <div class="promo-banner">
+            <img src="logo.jpg" alt="MarcelCTG" class="promo-logo">
+            <h2 style="font-size: 3rem; margin-bottom: 15px;">🔴 JETZT LIVE ODER GLEICH DABEI SEIN!</h2>
+            <p style="font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 30px auto;">
+                Erlebe Gaming, spannende Talks, Entertainment und den gemütlichen herbstlichen Vibe im Stream. Verpasse keine Sekunde mehr!
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://m.twitch.tv/marcelctg" target="_blank" class="btn primary" style="font-size: 1.1rem; padding: 15px 35px;"><i class="fab fa-twitch"></i> Twitch Kanal öffnen</a>
+                <a href="https://discord.gg/FCPZFVmgxz" target="_blank" class="btn discord" style="font-size: 1.1rem; padding: 15px 35px;"><i class="fab fa-discord"></i> In den Discord</a>
+            </div>
+        </div>
+
+        <h3 class="section-title" style="text-align: center; margin-bottom: 30px;">Folge MarcelCTG auf allen Kanälen</h3>
+        <div class="merch-grid">
+            <div class="merch-card" onclick="window.open('https://youtube.com/@marcelctg', '_blank');" style="cursor: pointer; text-align: center;">
+                <div class="merch-img" style="color: #FF0000;"><i class="fab fa-youtube fa-3x"></i></div>
+                <h3>YouTube</h3>
+                <p style="color: #94a3b8;">Highlights & Let's Plays</p>
+            </div>
+            <div class="merch-card" onclick="window.open('https://www.instagram.com/marcelctg', '_blank');" style="cursor: pointer; text-align: center;">
+                <div class="merch-img" style="color: #E1306C;"><i class="fab fa-instagram fa-3x"></i></div>
+                <h3>Instagram</h3>
+                <p style="color: #94a3b8;">Einblicke & Stories</p>
+            </div>
+            <div class="merch-card" onclick="window.open('https://www.tiktok.com/@marcelctg_officel_de', '_blank');" style="cursor: pointer; text-align: center;">
+                <div class="merch-img" style="color: #ff0050;"><i class="fab fa-tiktok fa-3x"></i></div>
+                <h3>TikTok</h3>
+                <p style="color: #94a3b8;">Die lustigsten Clips</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a> | 
+            <a href="about.html">Über mich</a> | 
+            <a href="streams.html">Streams</a> | 
+            <a href="offers.html">Angebote</a> | 
+            <a href="partners.html">Partner</a> | 
+            <a href="merch.html">Merch</a> | 
+            <a href="ads.html">Promo</a>
+        </div>
+        <p>&copy; 2026 MarcelCTG. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
